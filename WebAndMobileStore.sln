@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAndMobileStore", "WebAndMobileStore\WebAndMobileStore.csproj", "{850AAA34-8AAC-4780-85CA-AF1B1BDD2325}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{850AAA34-8AAC-4780-85CA-AF1B1BDD2325}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{850AAA34-8AAC-4780-85CA-AF1B1BDD2325}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{850AAA34-8AAC-4780-85CA-AF1B1BDD2325}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{850AAA34-8AAC-4780-85CA-AF1B1BDD2325}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {98726217-E401-4935-AF88-BBFBEB0974C3}
+	EndGlobalSection
+EndGlobal

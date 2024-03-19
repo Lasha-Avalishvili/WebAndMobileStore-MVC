@@ -1,0 +1,68 @@
+﻿@model List<Item>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Items List</title>
+    <style>
+        body {
+            background-color: #f0f0f0; 
+        }
+
+        .item-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px; 
+        }
+
+        .item-box {
+            background-color: white;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .item-image {
+            width: 100%; 
+            height: auto;
+        }
+
+        .item-details {
+            margin-top: 10px;
+        }
+
+        .item-details div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-details div strong {
+            min-width: 120px; 
+            text-align: left; 
+        }
+
+        .item-details div span {
+            text-align: right;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Items List</h1>
+    <div class="item-container">
+        @foreach (var item in Model)
+        {
+            <div class="item-box">
+                <img src="@item.ImageUrl" alt="@item.Name" class="item-image" />
+                <div class="item-details">
+                    <div><strong>Name:</strong> <span>@item.Name</span></div>
+                    <div><strong>Description:</strong> <span>@item.Description</span></div>
+                    <div><strong>Price:</strong> <span>@item.Price.ToString("C")</span></div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+
+</html>
