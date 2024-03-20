@@ -54,7 +54,18 @@
         @foreach (var item in Model)
         {
             <div class="item-box">
-                <img src="@item.ImageUrl" alt="@item.Name" class="item-image" />
+                <div class="item-images">
+                    <div class="image-container">
+                        @foreach (var imageUrl in item.ImageUrls)
+                        {
+                            <img src="@imageUrl" alt="@item.Name" class="item-image" />
+                        }
+                        <div class="navigation-buttons">
+                            <button class="prev-button">Prev</button>
+                            <button class="next-button">Next</button>
+                        </div>
+                    </div>
+                </div>
                 <div class="item-details">
                     <div><strong>Name:</strong> <span>@item.Name</span></div>
                     <div><strong>Description:</strong> <span>@item.Description</span></div>
@@ -63,6 +74,77 @@
             </div>
         }
     </div>
+
+    <style>
+        .item-images {
+            position: relative;
+            display: inline-block;
+        }
+
+        .navigation-buttons {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .prev-button,
+        .next-button {
+            background-color: rgba(255, 255, 255, 0.5);
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .prev-button {
+            left: 0;
+        }
+
+        .next-button {
+            right: 0;
+        }
+
+        .image-container {
+            position: relative;
+        }
+
+        .item-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+
+    <script>
+        document.querySelectorAll('.item-box').forEach(itemBox => {
+            const images = itemBox.querySelectorAll('.item-image');
+            let currentImageIndex = 0;
+
+            function showImage(index) {
+                images.forEach(image => image.style.display = 'none');
+                images[index].style.display = 'block';
+            }
+
+            function showNextImage() {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                showImage(currentImageIndex);
+            }
+
+            function showPrevImage() {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                showImage(currentImageIndex);
+            }
+
+            itemBox.querySelector('.next-button').addEventListener('click', showNextImage);
+            itemBox.querySelector('.prev-button').addEventListener('click', showPrevImage);
+
+            showImage(currentImageIndex);
+        });
+    </script>
 </body>
+
+
 
 </html>
